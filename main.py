@@ -1,12 +1,16 @@
 from ai.genetic import GeneticAlgorithm
-from utils.config import NUM_GENERATIONS
 
 def main():
     ga = GeneticAlgorithm()
-    for gen in range(NUM_GENERATIONS):
-        print(f"\nGeração {gen+1}:")
-        ga.evaluate()
-        print("Melhor aptidão:", ga.fitness(ga.population[0]))
+    NUM_GERACOES = 10
+
+    for _ in range(NUM_GERACOES):
+        melhor = ga.evaluate()          # devolve melhor aptidao
+        print(
+            f"geracao {ga.generation} | "
+            f"dificuldade {ga.current_diff} | "
+            f"melhor aptidao: {melhor}"
+        )
         ga.next_generation()
 
 if __name__ == "__main__":
